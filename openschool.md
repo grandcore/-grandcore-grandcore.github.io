@@ -1,6 +1,7 @@
 ---
 layout: page
 title: OpenSchool
+permalink: /openschool/
 ---
 
 # OpenSchool
