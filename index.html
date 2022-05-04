@@ -2,7 +2,6 @@
 layout: default
 title: Home
 cover: false
-about: 'about.html'
 ---
 
 <header class="main-header {% if page.cover %}" style="background-image: url({{ page.cover }}) {%else%}no-cover{% endif %}">
@@ -12,23 +11,68 @@ about: 'about.html'
                     <img src="{{ page.logo }}" alt="Blog Logo" />
                 </a>
             {% endif %}
-        <a class="subscribe-button icon-feed" href="{{'feed.xml' | relative_url }} ">Subscribe</a>
+        
     </nav>
     <div class="vertical">
-        <div class="main-header-content inner">
-            <h1 class="page-title">{{ site.name }}</h1>
-            <h2 class="page-description">
-                {% if site.description %} {{ site.description }}. {% endif %}
-                {% if page.about %} <a href='{{page.about | relative_url}}'> About me </a> {% endif %}
-            </h2>
+        <div class="main-header-content inner" style="padding-bottom: 2rem; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <img src="{{ site.baseurl }}assets/images/logo_full.svg" style="width: 80%; max-width: 487px;">
+            <p style="text-align: left; padding-bottom: 1rem;">
+                
+                Привет! Наша команда занимается разработкой свободных, общественно значимых проектов. Вы можете бесплатно использовать все наши наработки. Если вы хотите вместе с нами делать мир лучше, вступайте в нашу команду и становитесь нашим спонсором.
+                <br>  
+                <a href="about/">Подробнее...</a></p>
+
+            
+
+
+<h2 style="font-size: 3rem;">Текущие проекты</h2>
+<div style="align-items: center; padding-bottom: 2rem; min-width: 200px; padding-left: 6.5rem;">
+
+        <div style="justify-content: left; text-align: left; ">
+<a href='bratia/'>Bratia </a> (<a href='{{page.about | relative_url}}'><a href='im-wiki/'>im-wiki</a></a>)
+        </div>
+
+        <div style="justify-content: left; text-align: left;">
+<a href='openschool/'>OpenSchool </a>
+        </div> 
+</div>
+
+
+
+
+
+
+
+
+
+<h2 style="font-size: 3rem;">Подпишитесь</h2>
+
+<div style="align-items: center; min-width: 200px;">
+
+        <div style="justify-content: left; text-align: left;">
+            <img src="{{ site.baseurl }}assets/images/icon_telegram.svg" style="width: 2rem; height: auto; padding-right: 1.5rem; vertical-align: middle;"><a href='https://t.me/grandcore_news'>Наши новости</a>
+        </div>
+
+        <div style="justify-content: left; text-align: left;">
+        <img src="{{ site.baseurl }}assets/images/icon_telegram.svg" style="width: 2rem; height: auto; padding-right: 1.5rem; vertical-align: middle;"><a href='{{page.about | relative_url}}'></a><a href='https://t.me/grandcore_chat'>Наша группа</a>
+        </div>
+
+        <div style="justify-content: left; text-align: left;">
+        <img src="{{ site.baseurl }}assets/images/icon_youtube.svg" style="width: 2rem; height: auto; padding-right: 1rem;"> <a href='https://www.youtube.com/c/GrandCore/'>Наши видео</a>
+        </div>
+
+</div>
+
+            
         </div>
     </div>
-    <a class="scroll-down icon-arrow-left" href="#content" data-offset="-45"><span class="hidden">Scroll Down</span></a>
+    <a class="scroll-down icon-arrow-left" href="#content" data-offset="-45"><span class="hidden">Вниз</span></a>
 </header>
 
 
 <main id="content" class="content" role="main">
 
+    <h2 style="text-align: center; font-size: 2rem; padding-top: 4rem;">Последние новости</h2>
 
     <div class="extra-pagination inner">
         {% include pagination.html %}
@@ -38,21 +82,16 @@ about: 'about.html'
 
     <article class="post">
         <header class="post-header">
-            <h2 class="post-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+            <h3 style="font-size: 2rem;"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
         </header>
         <section class="post-excerpt">
             {{ post.excerpt }} <a class="read-more" href="{{ post.url | relative_url }}">&raquo;</a>
         </section>
         <footer class="post-meta">
-            {% if site.author %}
-                <img class="author-thumb" src="{{'/assets/images/profile.png' | relative_url}}" alt="Author's profile picture" nopin="nopin" />
-                {{ site.author }}
-            {% endif %}
-            {% if post.categories.size > 0 %} 
-                {{ post.categories | array_to_sentence_string | prepend: 'on ' }} 
-            {% endif %}
+
+
             <time class="post-date" datetime="{{ post.date | date:"%Y-%m-%d" }}">
-                {{ post.date | date_to_string }}
+                {{ post.date | date: "%Y-%m-%d" }}
             </time> 
         </footer>
     </article>
